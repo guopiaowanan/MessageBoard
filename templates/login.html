@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>欢迎登录！</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            input {
+                margin-right: 5px;
+                height: 30px;
+                padding: 0 5px;
+            }
+
+            button {
+                height: 30px;
+                padding: 0 5px;
+            }
+
+            #reg_form {
+                margin: 50px auto;
+                width: 600px;
+            }
+
+            #reg_form td {
+               padding-top: 10px;
+            }
+        </style>
+        <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    </head>
+    <body>
+        {% if login_fail %}
+        <script>
+            alert("用户名或密码错误，请重新登录！");
+        </script>
+        {% endif %}
+        <div id="reg_form">
+            <form action="/login" method="POST">
+                <table>
+                    <tr><td>用户名：</td><td><input type="text" id="uname" name="uname" placeholder="用户名" autofocus></td></tr>
+                    <tr><td>密码：</td><td><input type="password" id="upass" name="upass" placeholder="登录密码"></td></tr>
+                    <tr><td></td><td><button type="submit">登录</button></td></tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

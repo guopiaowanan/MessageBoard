@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>留言板首页</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            a {
+                margin-right: 5px;
+            }
+
+            input {
+                margin-right: 5px;
+                height: 30px;
+                padding: 0 5px;
+            }
+
+            button {
+                height: 30px;
+                padding: 0 5px;
+            }
+
+            #reg_form {
+                margin: 50px auto;
+                width: 600px;
+            }
+
+            #reg_form td {
+               padding-top: 10px;
+            }
+        </style>
+        <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+    </head>
+    <body>
+        <nav>
+            <a href="/message_board">留言板</a><a href="/login">登录</a><a href="/reg">注册</a>
+        </nav>
+    </body>
+</html>

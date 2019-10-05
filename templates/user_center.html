@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>用户中心</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            a {
+                margin-right: 5px;
+            }
+
+            input {
+                margin-right: 5px;
+                height: 30px;
+                padding: 0 5px;
+            }
+
+            button {
+                height: 30px;
+                padding: 0 5px;
+            }
+
+            #reg_form {
+                margin: 50px auto;
+                width: 600px;
+            }
+
+            #reg_form td {
+               padding-top: 10px;
+            }
+        </style>
+        <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+        <script>
+            $(function(){
+                $("#logout").click(function(){
+                    $.ajax({
+                        url: "/logout",
+                        success: function(data){
+                            if (data["err"] === 0) {
+                                alert("注销登录成功！");
+                                location.href = "/login";
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="welcome">
+            <span>{{ uname }}，你好！</span><a href="/message_board">留言板</a><a id="logout" href="javascript:;">残忍离开</a>
+        </div>
+    </body>
+</html>
